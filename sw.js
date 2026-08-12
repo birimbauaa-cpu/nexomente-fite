@@ -1,4 +1,4 @@
-const CACHE = 'nexomente-v1';
+const CACHE = 'nexomente-v2-dark-mode';
 const APP_SHELL = [
   './',
   './index.html',
