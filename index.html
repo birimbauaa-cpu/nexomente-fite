@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#153A34" />
   <meta name="description" content="NexoMente: ferramentas de foco, organização e estudo com uma experiência ajustável para diferentes formas de atenção e processamento." />
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="light dark" />
   <title>NexoMente — foco do seu jeito</title>
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -358,7 +358,7 @@
 
         <div class="sources-block" aria-labelledby="fontes-title">
           <div>
-            <p class="eyebrow">Pesquisa que orientou o protótipo</p>
+            <p class="eyebrow">NEXOMENTE - PESQUISAS</p>
             <h3 id="fontes-title">Fontes e referências</h3>
           </div>
           <div class="source-links">
@@ -388,7 +388,7 @@
         <p>Este site não faz diagnóstico e não substitui avaliação, acompanhamento ou tratamento com profissionais de saúde e educação.</p>
       </div>
       <div class="footer-meta">
-        <span>v1.0 · FITE</span>
+        <span>v1.0 · NEXOMENTE</span>
         <a href="SOURCES.md">Créditos e fontes</a>
       </div>
     </div>
@@ -415,6 +415,10 @@
           <input type="checkbox" id="dialogLargeText" />
         </label>
         <label class="toggle-row">
+         <span><strong>Modo escuro</strong><small>Reduz a luminosidade da interface e usa cores mais confortáveis em ambientes escuros.</small></span>
+         <input type="checkbox" id="darkModeToggle" />
+       </label>
+        <label class="toggle-row">
           <span><strong>Alto contraste</strong><small>Reforça bordas e contraste de texto.</small></span>
           <input type="checkbox" id="dialogContrast" />
         </label>
@@ -428,7 +432,7 @@
     <div class="focus-shell">
       <button class="icon-button focus-close" type="button" id="closeFocusRoom" aria-label="Fechar modo foco">×</button>
       <p class="eyebrow">Modo foco</p>
-      <h2 id="focusRoomTitle">Só isso por enquanto.</h2>
+      <h2 id="focusRoomTitle">O foco é necessário.</h2>
       <p class="focus-task-display" id="focusRoomTask">Escolha uma tarefa na tela anterior.</p>
       <div class="focus-time" id="focusRoomTime" aria-live="polite">25:00</div>
       <div class="focus-actions">
