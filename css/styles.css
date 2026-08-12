@@ -390,6 +390,265 @@ details[open] summary span:last-child { transform: rotate(45deg); }
 body.large-text { --text-scale: 1.12; }
 body.high-contrast { --ink: #050a08; --ink-soft: #252b28; --line: #686d6a; --paper: #fbfaf5; --surface: #fff; }
 body.high-contrast .button-primary { background: #081c18; }
+/* =========================================================
+   MODO ESCURO — NEXOMENTE
+   ========================================================= */
+
+body.dark-mode {
+  --ink: #edf3f0;
+  --ink-soft: #afbeb7;
+
+  --paper: #0f1613;
+  --paper-2: #141e1a;
+  --surface: #18241f;
+
+  --forest: #326958;
+  --forest-2: #8ac8b4;
+
+  --mint: #223f35;
+  --mint-2: #345f51;
+
+  --coral: #f08a73;
+  --yellow: #efd675;
+
+  --line: #34473f;
+  --line-dark: #687a72;
+
+  --shadow:
+    0 18px 45px rgba(0, 0, 0, .32);
+
+  color-scheme: dark;
+}
+
+
+/* Fundo quadriculado extremamente discreto */
+body.dark-mode::before {
+  opacity: .16;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, .045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, .045) 1px,
+      transparent 1px
+    );
+}
+
+
+/* Cabeçalho */
+body.dark-mode .site-header {
+  background: rgba(15, 22, 19, .94);
+  border-bottom-color: rgba(255, 255, 255, .10);
+}
+
+
+/* Botão principal */
+body.dark-mode .button-primary {
+  background: #8bc9b5;
+  border-color: #8bc9b5;
+  color: #08120f;
+}
+
+body.dark-mode .button-primary:hover {
+  background: #a0dac7;
+  border-color: #a0dac7;
+}
+
+
+/* Botões secundários */
+body.dark-mode .button-secondary:hover {
+  background: rgba(255, 255, 255, .07);
+}
+
+body.dark-mode .button-quiet {
+  background: #18241f;
+}
+
+
+/* Área verde das ferramentas */
+body.dark-mode .tools-section {
+  background: #102d25;
+  color: #edf3f0;
+}
+
+body.dark-mode .tools-section .eyebrow {
+  color: #9ed4c2;
+}
+
+body.dark-mode .tools-section .split-heading > p {
+  color: #bdcbc5;
+}
+
+
+/* Cards das ferramentas */
+body.dark-mode .tool-card {
+  background: #18241f;
+  color: #edf3f0;
+  border-color: #40544b;
+}
+
+
+/* Campos */
+body.dark-mode .text-input,
+body.dark-mode .priority-input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background: #111a16;
+  color: #edf3f0;
+  border-color: #52675e;
+}
+
+body.dark-mode .text-input::placeholder,
+body.dark-mode .priority-input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #82928b;
+}
+
+
+/* Timer */
+body.dark-mode .ring-track {
+  stroke: #32443c;
+}
+
+body.dark-mode .preset.active {
+  background: #9bd1bf;
+  border-color: #9bd1bf;
+  color: #07110e;
+}
+
+
+/* Etapas das tarefas */
+body.dark-mode .step-item {
+  background: #111a16;
+}
+
+body.dark-mode .step-item input:checked + label {
+  color: #788980;
+}
+
+body.dark-mode .step-note {
+  background: #302d1d;
+  color: #e2dfcd;
+  border-left-color: var(--yellow);
+}
+
+
+/* Interruptores */
+body.dark-mode .toggle-row input {
+  background: #263630;
+}
+
+body.dark-mode .toggle-row input::after {
+  background: #dce7e2;
+  border-color: #82928b;
+}
+
+body.dark-mode .toggle-row input:checked {
+  background: #5fa990;
+}
+
+body.dark-mode .toggle-row input:checked::after {
+  border-color: #dce7e2;
+}
+
+
+/* Imagens um pouco menos brilhantes */
+body.dark-mode .hero-media img,
+body.dark-mode .photo-band img {
+  filter:
+    saturate(.75)
+    brightness(.82)
+    contrast(1.04);
+}
+
+
+/* Cartão amarelo da foto principal */
+body.dark-mode .hero-note {
+  background: #d8bd63;
+  color: #15201c;
+  border-color: #15201c;
+}
+
+body.dark-mode .hero-note small {
+  color: #37413c;
+}
+
+
+/* Painel escuro da seção do projeto */
+body.dark-mode .dark-panel {
+  background: #09110e;
+  color: #edf3f0;
+}
+
+body.dark-mode .dark-panel p {
+  color: #b8c6c0;
+}
+
+
+/* Rodapé continua realmente escuro */
+body.dark-mode .site-footer {
+  background: #080e0b;
+  color: #edf3f0;
+}
+
+body.dark-mode .footer-grid p,
+body.dark-mode .footer-meta {
+  color: #a9b8b1;
+}
+
+
+/* Modal de configurações */
+body.dark-mode .dialog-shell {
+  background: #18241f;
+  border-color: #566a61;
+}
+
+
+/* Tela do Modo Foco */
+body.dark-mode .focus-shell {
+  background: #0b1210;
+  color: #edf3f0;
+}
+
+
+/* Links */
+body.dark-mode .source-links a:hover,
+body.dark-mode .button-link:hover {
+  color: #a9ddcc;
+}
+
+
+/* Foco do teclado continua bem visível */
+body.dark-mode :focus-visible {
+  outline-color: #f2d975;
+}
+
+
+/* Alto contraste + modo escuro juntos */
+body.dark-mode.high-contrast {
+  --ink: #ffffff;
+  --ink-soft: #d8e1dd;
+
+  --paper: #050806;
+  --paper-2: #090e0b;
+  --surface: #0d1511;
+
+  --line: #8fa098;
+  --line-dark: #d1dcd7;
+
+  --forest: #21604f;
+  --forest-2: #b7ead9;
+}
+
+body.dark-mode.high-contrast .button-primary {
+  background: #b7ead9;
+  border-color: #b7ead9;
+  color: #020906;
+}
 body.low-stimulus::before { display: none; }
 body.low-stimulus .hero-media,
 body.low-stimulus .photo-band figure,
