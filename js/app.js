@@ -5,53 +5,126 @@
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
-  // ---------- Experience settings ----------
+    // ---------- Experience settings ----------
+  const systemPrefersDark =
+    window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+
   const experience = {
     lowStimulus: false,
     largeText: false,
     highContrast: false,
+    darkMode: systemPrefersDark,
     ...safeParse(localStorage.getItem('nexomente:experience')),
   };
 
   const controls = {
-    lowStimulus: [$('#lowStimulusToggle'), $('#dialogLowStimulus')],
-    largeText: [$('#largeTextToggle'), $('#dialogLargeText')],
-    highContrast: [$('#contrastToggle'), $('#dialogContrast')],
+    lowStimulus: [
+      $('#lowStimulusToggle'),
+      $('#dialogLowStimulus')
+    ],
+
+    largeText: [
+      $('#largeTextToggle'),
+      $('#dialogLargeText')
+    ],
+
+    highContrast: [
+      $('#contrastToggle'),
+      $('#dialogContrast')
+    ],
+
+    darkMode: [
+      $('#darkModeToggle'),
+      $('#dialogDarkMode')
+    ],
   };
 
   function safeParse(value) {
-    try { return value ? JSON.parse(value) : {}; }
-    catch { return {}; }
+    try {
+      return value ? JSON.parse(value) : {};
+    } catch {
+      return {};
+    }
   }
 
   function applyExperience() {
-    body.classList.toggle('low-stimulus', !!experience.lowStimulus);
-    body.classList.toggle('large-text', !!experience.largeText);
-    body.classList.toggle('high-contrast', !!experience.highContrast);
+    body.classList.toggle(
+      'low-stimulus',
+      !!experience.lowStimulus
+    );
 
+    body.classList.toggle(
+      'large-text',
+      !!experience.largeText
+    );
+
+    body.classList.toggle(
+      'high-contrast',
+      !!experience.highContrast
+    );
+
+    body.classList.toggle(
+      'dark-mode',
+      !!experience.darkMode
+    );
+
+    // Faz campos nativos do navegador acompanharem o tema.
+    document.documentElement.style.colorScheme =
+      experience.darkMode ? 'dark' : 'light';
+
+    // Altera a cor da barra do navegador no celular.
+    const themeColor =
+      document.querySelector('meta[name="theme-color"]');
+
+    if (themeColor) {
+      themeColor.setAttribute(
+        'content',
+        experience.darkMode ? '#0f1613' : '#153A34'
+      );
+    }
+
+    // Mantém os controles da página e do modal sincronizados.
     Object.entries(controls).forEach(([key, elements]) => {
-      elements.filter(Boolean).forEach(el => { el.checked = !!experience[key]; });
+      elements
+        .filter(Boolean)
+        .forEach((el) => {
+          el.checked = !!experience[key];
+        });
     });
-    localStorage.setItem('nexomente:experience', JSON.stringify(experience));
+
+    // Salva todas as escolhas no navegador.
+    localStorage.setItem(
+      'nexomente:experience',
+      JSON.stringify(experience)
+    );
   }
 
   Object.entries(controls).forEach(([key, elements]) => {
-    elements.filter(Boolean).forEach(el => {
-      el.addEventListener('change', () => {
-        experience[key] = el.checked;
-        applyExperience();
+    elements
+      .filter(Boolean)
+      .forEach((el) => {
+        el.addEventListener('change', () => {
+          experience[key] = el.checked;
+          applyExperience();
+        });
       });
-    });
   });
 
   applyExperience();
 
   const experienceDialog = $('#experienceDialog');
-  $('#openExperience')?.addEventListener('click', () => experienceDialog?.showModal());
+
+  $('#openExperience')?.addEventListener(
+    'click',
+    () => experienceDialog?.showModal()
+  );
+
   $('#resetExperience')?.addEventListener('click', () => {
     experience.lowStimulus = false;
     experience.largeText = false;
     experience.highContrast = false;
+    experience.darkMode = false;
+
     applyExperience();
   });
 
