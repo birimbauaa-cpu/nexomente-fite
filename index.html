@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#153A34" />
+  <meta name="description" content="NexoMente: ferramentas de foco, organização e estudo com uma experiência ajustável para diferentes formas de atenção e processamento." />
+  <meta name="color-scheme" content="light" />
+  <title>NexoMente — foco do seu jeito</title>
+  <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header" id="topo">
+    <div class="shell header-inner">
+      <a class="brand" href="#topo" aria-label="NexoMente, início">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-name">NexoMente</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#ferramentas">Ferramentas</a>
+        <a href="#entenda">Entenda</a>
+        <a href="#projeto">Projeto FITE</a>
+      </nav>
+
+      <button class="button button-quiet" type="button" id="openExperience" aria-haspopup="dialog">
+        <span class="button-icon" aria-hidden="true">◐</span>
+        Ajustar experiência
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero shell section" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Protótipo para a FITE</p>
+        <h1 id="hero-title">Seu foco não precisa funcionar do jeito de todo mundo.</h1>
+        <p class="hero-lead">Um espaço para <strong>começar</strong>, <strong>organizar</strong> e <strong>continuar</strong> tarefas com menos ruído e mais controle sobre a experiência.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#ferramentas">Quero começar agora <span aria-hidden="true">→</span></a>
+          <a class="button button-link" href="#entenda">Como o site foi pensado</a>
+        </div>
+        <div class="trust-row" aria-label="Características do protótipo">
+          <span>Sem anúncios</span>
+          <span>Sem cadastro</span>
+          <span>Dados salvos no seu navegador</span>
+        </div>
+      </div>
+
+      <figure class="hero-media">
+        <img
+          src="assets/images/hero-estudo.jpg"
+          alt="Estudante sentado à mesa, usando um notebook e fazendo anotações em um caderno."
+          width="1200" height="900" fetchpriority="high" />
+        <figcaption>Foto: RDNE Stock project / Pexels</figcaption>
+        <div class="hero-note" aria-hidden="true">
+          <span class="note-kicker">Hoje</span>
+          <strong>1 coisa de cada vez</strong>
+          <small>O resto pode esperar.</small>
+        </div>
+      </figure>
+    </section>
+
+    <section class="quick-start shell section section-compact" aria-labelledby="precisa-title">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">Atalho mental</p>
+          <h2 id="precisa-title">Do que você precisa agora?</h2>
+        </div>
+        <p>Escolha uma intenção. A página te leva direto para o recurso certo, sem precisar procurar.</p>
+      </div>
+
+      <div class="need-grid" role="list">
+        <button class="need-card" type="button" data-target="#timer" data-message="Vamos começar pequeno: escolha uma tarefa e um bloco de tempo.">
+          <span class="need-number" aria-hidden="true">01</span>
+          <span class="need-title">Começar uma tarefa</span>
+          <span class="need-text">Tirar a tarefa da cabeça e entrar em movimento.</span>
+          <span class="need-arrow" aria-hidden="true">↘</span>
+        </button>
+        <button class="need-card" type="button" data-target="#timer" data-message="Para estudar, vale usar um bloco curto e definir exatamente o que precisa ser aprendido.">
+          <span class="need-number" aria-hidden="true">02</span>
+          <span class="need-title">Estudar sem se perder</span>
+          <span class="need-text">Sessões claras, pausa previsível e uma meta por vez.</span>
+          <span class="need-arrow" aria-hidden="true">↘</span>
+        </button>
+        <button class="need-card" type="button" data-target="#planejador" data-message="Escolha só três prioridades. Menos opções deixam a decisão mais leve.">
+          <span class="need-number" aria-hidden="true">03</span>
+          <span class="need-title">Organizar o dia</span>
+          <span class="need-text">Três prioridades visíveis, sem uma lista infinita.</span>
+          <span class="need-arrow" aria-hidden="true">↘</span>
+        </button>
+        <button class="need-card" type="button" data-target="#ambiente" data-message="Você pode reduzir imagens, movimento e contraste visual em poucos cliques.">
+          <span class="need-number" aria-hidden="true">04</span>
+          <span class="need-title">Reduzir estímulos</span>
+          <span class="need-text">Ajustar a página ao que está confortável agora.</span>
+          <span class="need-arrow" aria-hidden="true">↘</span>
+        </button>
+      </div>
+      <p class="context-message" id="contextMessage" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="tools-section section" id="ferramentas" aria-labelledby="ferramentas-title">
+      <div class="shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Ferramentas que funcionam de verdade</p>
+            <h2 id="ferramentas-title">Menos pressão para começar. Mais clareza para continuar.</h2>
+          </div>
+          <p>Os recursos são independentes. Use um, use todos ou ignore o que não combina com você.</p>
+        </div>
+
+        <div class="tool-layout">
+          <article class="tool-card timer-card" id="timer" aria-labelledby="timer-title">
+            <div class="tool-card-head">
+              <div>
+                <span class="tool-label">01 · foco</span>
+                <h3 id="timer-title">Sprint de foco</h3>
+              </div>
+              <span class="pill">Sem som por padrão</span>
+            </div>
+
+            <label class="field-label" for="focusTask">O que você quer terminar neste bloco?</label>
+            <input class="text-input" id="focusTask" type="text" maxlength="120" placeholder="Ex.: revisar 3 páginas de biologia" autocomplete="off" />
+
+            <div class="timer-zone">
+              <div class="timer-ring" aria-hidden="true">
+                <svg viewBox="0 0 120 120" role="presentation">
+                  <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+                  <circle class="ring-progress" id="ringProgress" cx="60" cy="60" r="52"></circle>
+                </svg>
+                <div class="timer-display" id="timerDisplay" aria-live="polite">25:00</div>
+              </div>
+
+              <div class="timer-controls">
+                <div class="preset-row" aria-label="Duração do bloco">
+                  <button type="button" class="preset" data-minutes="10">10 min</button>
+                  <button type="button" class="preset active" data-minutes="25">25 min</button>
+                  <button type="button" class="preset" data-minutes="45">45 min</button>
+                </div>
+                <div class="button-row">
+                  <button class="button button-primary" type="button" id="timerToggle">Começar</button>
+                  <button class="button button-secondary" type="button" id="timerReset">Reiniciar</button>
+                </div>
+                <button class="focus-room-link" type="button" id="openFocusRoom">Abrir modo foco em tela limpa <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="tool-card task-card" id="quebrar" aria-labelledby="task-title">
+            <div class="tool-card-head">
+              <div>
+                <span class="tool-label">02 · função executiva</span>
+                <h3 id="task-title">Quebrar uma tarefa</h3>
+              </div>
+              <span class="pill">Funciona offline</span>
+            </div>
+            <p class="tool-intro">Quando uma tarefa parece grande demais, o primeiro passo costuma ficar invisível. Escreva a tarefa e o site transforma em um roteiro curto.</p>
+
+            <label class="field-label" for="bigTask">Qual tarefa está travando?</label>
+            <textarea class="text-input task-input" id="bigTask" rows="3" maxlength="180" placeholder="Ex.: preparar a apresentação da feira de ciências"></textarea>
+
+            <div class="inline-fields">
+              <div>
+                <label class="field-label" for="taskType">Tipo</label>
+                <select class="text-input" id="taskType">
+                  <option value="auto">Detectar automaticamente</option>
+                  <option value="study">Estudo / prova</option>
+                  <option value="presentation">Apresentação / trabalho</option>
+                  <option value="writing">Texto / relatório</option>
+                  <option value="home">Tarefa prática</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="energyLevel">Energia agora</label>
+                <select class="text-input" id="energyLevel">
+                  <option value="low">Baixa</option>
+                  <option value="mid" selected>Média</option>
+                  <option value="high">Alta</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="button button-primary full-button" type="button" id="breakTask">Criar passos simples</button>
+            <div class="step-result" id="stepResult" aria-live="polite"></div>
+          </article>
+        </div>
+
+        <div class="tool-layout tool-layout-lower">
+          <article class="tool-card planner-card" id="planejador" aria-labelledby="planner-title">
+            <div class="tool-card-head">
+              <div>
+                <span class="tool-label">03 · organização</span>
+                <h3 id="planner-title">As três coisas de hoje</h3>
+              </div>
+              <span class="pill">Salva sozinho</span>
+            </div>
+            <p class="tool-intro">Uma lista enorme pode virar mais uma fonte de ruído. Aqui cabem apenas três prioridades.</p>
+            <ol class="priority-list">
+              <li><input class="priority-input" id="priority1" maxlength="100" placeholder="Prioridade 1" aria-label="Prioridade 1" /></li>
+              <li><input class="priority-input" id="priority2" maxlength="100" placeholder="Prioridade 2" aria-label="Prioridade 2" /></li>
+              <li><input class="priority-input" id="priority3" maxlength="100" placeholder="Prioridade 3" aria-label="Prioridade 3" /></li>
+            </ol>
+            <div class="planner-footer">
+              <span id="savedState" aria-live="polite">Tudo fica salvo só neste navegador.</span>
+              <button type="button" class="button button-link danger-link" id="clearPriorities">Limpar</button>
+            </div>
+          </article>
+
+          <article class="tool-card environment-card" id="ambiente" aria-labelledby="environment-title">
+            <div class="tool-card-head">
+              <div>
+                <span class="tool-label">04 · conforto</span>
+                <h3 id="environment-title">Ambiente visual</h3>
+              </div>
+            </div>
+            <p class="tool-intro">Nem todo mundo precisa da mesma quantidade de informação ou estímulo. Ajuste agora; você pode desfazer quando quiser.</p>
+
+            <div class="toggle-list">
+              <label class="toggle-row">
+                <span>
+                  <strong>Baixo estímulo</strong>
+                  <small>Esconde imagens decorativas e reduz elementos secundários.</small>
+                </span>
+                <input type="checkbox" id="lowStimulusToggle" />
+              </label>
+              <label class="toggle-row">
+                <span>
+                  <strong>Texto maior</strong>
+                  <small>Aumenta a leitura sem dar zoom na página inteira.</small>
+                </span>
+                <input type="checkbox" id="largeTextToggle" />
+              </label>
+              <label class="toggle-row">
+                <span>
+                  <strong>Alto contraste</strong>
+                  <small>Deixa contornos e textos mais marcados.</small>
+                </span>
+                <input type="checkbox" id="contrastToggle" />
+              </label>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="knowledge section" id="entenda" aria-labelledby="entenda-title">
+      <div class="shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Sem reduzir pessoas a rótulos</p>
+            <h2 id="entenda-title">Neurodivergência não vem com uma única forma de pensar, sentir ou focar.</h2>
+          </div>
+          <p>Por isso o NexoMente não tenta “consertar” ninguém. Ele oferece estrutura, previsibilidade e escolhas.</p>
+        </div>
+
+        <div class="knowledge-grid">
+          <article class="knowledge-intro">
+            <p class="big-copy">Aqui usamos <strong>neurodivergência</strong> como um termo guarda-chuva social, não como diagnóstico médico. Pessoas com TDAH, autismo, dislexia e outras diferenças podem ter necessidades muito diferentes — e nem toda pessoa neurodivergente tem dificuldade de foco.</p>
+            <div class="evidence-strip">
+              <span>atenção</span>
+              <span>memória</span>
+              <span>organização</span>
+              <span>sensorial</span>
+              <span>linguagem</span>
+            </div>
+          </article>
+
+          <div class="accordion-list">
+            <details>
+              <summary><span>TDAH</span><span aria-hidden="true">+</span></summary>
+              <div class="details-body">Pode envolver dificuldade persistente para manter atenção, permanecer em uma tarefa, se organizar e controlar impulsos. O impacto varia bastante de pessoa para pessoa.</div>
+            </details>
+            <details>
+              <summary><span>Autismo</span><span aria-hidden="true">+</span></summary>
+              <div class="details-body">Pessoas autistas podem apresentar diferenças de comunicação, preferência por previsibilidade e rotina e respostas sensoriais mais ou menos intensas. Cada perfil é único.</div>
+            </details>
+            <details>
+              <summary><span>Dislexia e aprendizagem</span><span aria-hidden="true">+</span></summary>
+              <div class="details-body">Diferenças cognitivas e de aprendizagem podem afetar leitura, escrita, linguagem, memória ou velocidade de processamento sem dizer nada, por si só, sobre inteligência.</div>
+            </details>
+            <details>
+              <summary><span>O que ajuda na interface</span><span aria-hidden="true">+</span></summary>
+              <div class="details-body">Menos interrupções, conteúdo em blocos curtos, etapas claras, espaço visual, linguagem direta e personalização reduzem barreiras cognitivas para muitas pessoas.</div>
+            </details>
+          </div>
+        </div>
+
+        <div class="principles-grid" aria-label="Princípios de design do NexoMente">
+          <article>
+            <span class="principle-index">A</span>
+            <h3>Sem movimento gratuito</h3>
+            <p>Nenhum carrossel automático, banner pulando ou animação contínua disputando atenção.</p>
+          </article>
+          <article>
+            <span class="principle-index">B</span>
+            <h3>Passos visíveis</h3>
+            <p>A pessoa sempre consegue entender onde está, o que fazer agora e o que vem depois.</p>
+          </article>
+          <article>
+            <span class="principle-index">C</span>
+            <h3>Escolha do usuário</h3>
+            <p>Texto, contraste e quantidade de estímulos podem mudar sem apagar o conteúdo principal.</p>
+          </article>
+          <article>
+            <span class="principle-index">D</span>
+            <h3>Informação dosada</h3>
+            <p>Detalhes ficam recolhidos até a pessoa decidir abrir, em vez de aparecer tudo de uma vez.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo-band section" aria-label="Pessoas estudando em grupo">
+      <div class="shell photo-band-inner">
+        <figure>
+          <img class="support-image" src="assets/images/estudo-biblioteca.jpg" alt="Grupo de estudantes em uma biblioteca, estudando juntos em uma mesa." width="1200" height="800" loading="lazy" />
+          <figcaption>Foto: Yan Krukau / Pexels</figcaption>
+        </figure>
+        <div class="photo-copy">
+          <p class="eyebrow">Uma ferramenta, não uma regra</p>
+          <blockquote>“O objetivo não é fazer todo mundo produzir do mesmo jeito. É diminuir o atrito entre uma pessoa e aquilo que ela quer conseguir fazer.”</blockquote>
+          <p class="caption">Princípio de produto do protótipo NexoMente.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project section" id="projeto" aria-labelledby="projeto-title">
+      <div class="shell">
+        <div class="project-head">
+          <div>
+            <p class="eyebrow">FITE · projeto escolar</p>
+            <h2 id="projeto-title">Uma ideia que pode crescer para além da feira.</h2>
+          </div>
+          <p class="project-summary">Esta primeira versão demonstra o produto, a experiência e a lógica de apoio. Sem prometer diagnóstico, tratamento ou uma solução única.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-panel dark-panel">
+            <span class="panel-label">O problema</span>
+            <h3>Ferramentas de produtividade costumam exigir atenção antes de ajudar a atenção.</h3>
+            <p>Menus cheios, notificações, excesso de opções e interfaces agitadas podem aumentar a carga cognitiva em vez de diminuí-la.</p>
+          </article>
+          <article class="project-panel">
+            <span class="panel-label">A proposta</span>
+            <h3>Uma camada de organização adaptável, simples de usar e respeitosa.</h3>
+            <p>Foco temporizado, tarefas quebradas em etapas, prioridades limitadas e controle de estímulos num só lugar.</p>
+          </article>
+          <article class="project-panel">
+            <span class="panel-label">Próximos passos</span>
+            <h3>Testar com pessoas neurodivergentes e evoluir com feedback real.</h3>
+            <p>Perfis de experiência, agenda visual, rotina escolar, leitura assistida e integração opcional com calendário são caminhos possíveis.</p>
+          </article>
+        </div>
+
+        <div class="sources-block" aria-labelledby="fontes-title">
+          <div>
+            <p class="eyebrow">Pesquisa que orientou o protótipo</p>
+            <h3 id="fontes-title">Fontes e referências</h3>
+          </div>
+          <div class="source-links">
+            <a href="https://www.w3.org/TR/coga-usable/" target="_blank" rel="noreferrer">W3C · acessibilidade cognitiva <span aria-hidden="true">↗</span></a>
+            <a href="https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd" target="_blank" rel="noreferrer">NIMH · TDAH <span aria-hidden="true">↗</span></a>
+            <a href="https://www.cdc.gov/adhd/about/adhd-in-adults.html" target="_blank" rel="noreferrer">CDC · TDAH em adultos <span aria-hidden="true">↗</span></a>
+            <a href="https://www.who.int/news-room/fact-sheets/detail/autism-spectrum-disorders" target="_blank" rel="noreferrer">OMS · autismo <span aria-hidden="true">↗</span></a>
+            <a href="https://www.autism.org.uk/advice-and-guidance/about-autism/sensory-processing" target="_blank" rel="noreferrer">National Autistic Society · sensorial <span aria-hidden="true">↗</span></a>
+            <a href="https://chadd.org/for-adults/time-management-and-adhd-to-do-lists/" target="_blank" rel="noreferrer">CHADD · organização e tempo <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#topo">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="brand-name">NexoMente</span>
+        </a>
+        <p>Protótipo criado para uma feira de ciências. Ferramentas de apoio à organização e ao foco.</p>
+      </div>
+      <div class="footer-note">
+        <strong>Importante</strong>
+        <p>Este site não faz diagnóstico e não substitui avaliação, acompanhamento ou tratamento com profissionais de saúde e educação.</p>
+      </div>
+      <div class="footer-meta">
+        <span>v1.0 · FITE</span>
+        <a href="SOURCES.md">Créditos e fontes</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="experience-dialog" id="experienceDialog" aria-labelledby="experienceTitle">
+    <form method="dialog" class="dialog-shell">
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow">Sua interface</p>
+          <h2 id="experienceTitle">Ajustar experiência</h2>
+        </div>
+        <button class="icon-button" value="close" aria-label="Fechar ajustes">×</button>
+      </div>
+      <p class="dialog-intro">Esses ajustes ficam salvos neste navegador e podem ser alterados a qualquer momento.</p>
+
+      <div class="setting-group">
+        <label class="toggle-row">
+          <span><strong>Modo de baixo estímulo</strong><small>Reduz imagens e elementos não essenciais.</small></span>
+          <input type="checkbox" id="dialogLowStimulus" />
+        </label>
+        <label class="toggle-row">
+          <span><strong>Texto maior</strong><small>Aumenta tamanho e espaçamento de leitura.</small></span>
+          <input type="checkbox" id="dialogLargeText" />
+        </label>
+        <label class="toggle-row">
+          <span><strong>Alto contraste</strong><small>Reforça bordas e contraste de texto.</small></span>
+          <input type="checkbox" id="dialogContrast" />
+        </label>
+      </div>
+
+      <button class="button button-secondary full-button" type="button" id="resetExperience">Voltar ao padrão</button>
+    </form>
+  </dialog>
+
+  <dialog class="focus-dialog" id="focusRoom" aria-labelledby="focusRoomTitle">
+    <div class="focus-shell">
+      <button class="icon-button focus-close" type="button" id="closeFocusRoom" aria-label="Fechar modo foco">×</button>
+      <p class="eyebrow">Modo foco</p>
+      <h2 id="focusRoomTitle">Só isso por enquanto.</h2>
+      <p class="focus-task-display" id="focusRoomTask">Escolha uma tarefa na tela anterior.</p>
+      <div class="focus-time" id="focusRoomTime" aria-live="polite">25:00</div>
+      <div class="focus-actions">
+        <button class="button button-primary" type="button" id="focusRoomToggle">Começar</button>
+        <button class="button button-secondary" type="button" id="focusRoomReset">Reiniciar</button>
+      </div>
+      <p class="focus-tip">Se sua atenção sair da tarefa, volte para a próxima ação pequena. Não precisa “recuperar” o tempo perdido.</p>
+    </div>
+  </dialog>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
